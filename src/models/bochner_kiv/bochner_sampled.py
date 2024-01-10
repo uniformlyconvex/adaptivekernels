@@ -18,7 +18,7 @@ class BochnerKIVSampled:
     xi_search_space: torch.Tensor
 
     X_net: torch.nn.Module
-    Z_net = torch.nn.Module
+    Z_net: torch.nn.Module
 
     device: str = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -56,7 +56,8 @@ class BochnerKIVSampled:
 
         # If the minibatch size is sufficiently large, we are just using the whole dataset
         MINIBATCH_SIZE = 200 if minibatched else max(len(self.data.stage_1), len(self.data.stage_2))
-        NO_SAMPLES = 10_000
+        NO_SAMPLES = 20_000
+        MINIBATCH_SIZE = 10000
 
         # We can draw these once and detach them since we're training the Z kernel
         X_samples = self.X_kernel.sample(NO_SAMPLES).detach()

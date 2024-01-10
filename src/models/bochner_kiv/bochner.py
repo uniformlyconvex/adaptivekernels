@@ -53,6 +53,7 @@ class BochnerKIV:
 
         # If the minibatch size is sufficiently large, we are just using the whole dataset
         MINIBATCH_SIZE = 100 if minibatched else max(len(self.data.stage_1), len(self.data.stage_2))
+        MINIBATCH_SIZE = 10000
 
         for i in range(iterations):
             stage_1_regularized_loss_overall = 0.0

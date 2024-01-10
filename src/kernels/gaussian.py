@@ -3,9 +3,6 @@ import torch
 from dataclasses import dataclass
 from typing import Tuple
 
-from zmq import device
-
-
 @dataclass
 class GaussianKernel:
     lengthscale: float | torch.Tensor
